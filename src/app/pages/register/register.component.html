@@ -1,1 +1,113 @@
-<p>register works!</p>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
+    <!-- Registration Container -->
+    <div class="w-full max-w-[500px]">
+        <!-- Header / Logo Section -->
+        <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center space-x-2">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+        <span class="material-icons text-white">translate</span>
+        </div>
+        <h1 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight">Yoreme Traduce</h1>
+        </div>
+        <p class="mt-2 text-slate-500 dark:text-slate-400 font-medium">Únete a la comunidad de traducción</p>
+        </div>
+        <!-- Registration Card -->
+        <div class="bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none rounded-xl border border-slate-100 dark:border-slate-800 p-8 md:p-10">
+            <form action="#" class="space-y-5">
+            <!-- Full Name Field -->
+            <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="full-name">Nombre Completo</label>
+            <div class="relative">
+            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">person</span>
+            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="full-name" placeholder="Ej. Juan Pérez" type="text"/>
+            </div>
+            </div>
+            <!-- Email Field -->
+            <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Correo Electrónico</label>
+            <div class="relative">
+            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
+            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="email" placeholder="tu@correo.com" type="email"/>
+            </div>
+            </div>
+            <!-- Username Field -->
+            <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre de Usuario</label>
+            <div class="relative">
+            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">badge</span>
+            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="username" placeholder="juanperez123" type="text"/>
+            </div>
+            </div>
+            <!-- Password Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Password Field -->
+            <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Contraseña</label>
+            <div class="relative">
+            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
+            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="password" placeholder="••••••••" type="password"/>
+            </div>
+            </div>
+            <!-- Confirm Password Field -->
+            <div>
+            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm-password">Confirmar</label>
+            <div class="relative">
+            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">check_circle_outline</span>
+            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="confirm-password" placeholder="••••••••" type="password"/>
+            </div>
+            </div>
+            </div>
+            <!-- Terms and Conditions -->
+            <div class="flex items-start space-x-3 pt-2">
+            <div class="flex items-center h-5">
+            <input class="w-4 h-4 text-primary border-slate-300 dark:border-slate-700 rounded focus:ring-primary bg-slate-50 dark:bg-slate-800" id="terms" type="checkbox"/>
+            </div>
+            <label class="text-xs text-slate-500 dark:text-slate-400 leading-normal" for="terms">
+                                    Acepto los <a class="text-primary hover:underline font-medium" href="#">Términos de Servicio</a> y la <a class="text-primary hover:underline font-medium" href="#">Política de Privacidad</a> de Yoreme Traduce.
+                                </label>
+            </div>
+            <!-- Submit Button -->
+            <button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-md shadow-primary/20 transition-all duration-200 transform active:scale-[0.98] mt-2" type="submit">
+                                Crear Cuenta
+                            </button>
+            </form>
+            <!-- Social Registration (Optional/Modern touch) -->
+            <!-- <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                <span class="w-full border-t border-slate-200 dark:border-slate-800"></span>
+                </div>
+            <div class="relative flex justify-center text-xs uppercase">
+                <span class="bg-white dark:bg-slate-900 px-4 text-slate-400 font-medium">O registrarse con</span>
+            </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="flex items-center justify-center space-x-2 py-2 px-4 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" type="button">
+                    <img alt="Google" class="w-5 h-5" data-alt="Logotipo de Google para inicio de sesión" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJXj3Q0guBIkZyn0Epj_pmUKjujIenIY7DfF2susIIL2GvJRXFhBTEWVH_nTA54P9rzIm3J0G2Np2JO1k7nxx6rD_4X1UPbaw8xuOhtj6E8F2k2L4UVxIFoHE5MbCNRg8YKlWiSqVgeoWhnmKpQ28Q600xF8tbY5_zHHi4aVDAzJYQF_kGhtN1RBEMRu64ixiliaTYAKlKss0qeU4oyxgKqgAPcmvb3r5r6s9eYl8pyWsg8xSrGzPVIC2ZNoSSZLGcti6z4NIuxk93"/>
+                    <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Google</span>
+                </button>
+                <button class="flex items-center justify-center space-x-2 py-2 px-4 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" type="button">
+                    <span class="material-icons text-slate-700 dark:text-slate-300">apple</span>
+                    <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Apple</span>
+                </button>
+            </div> -->
+        </div>
+        <!-- Login Redirect Footer -->
+        <div class="mt-8 text-center">
+            <p class="text-slate-600 dark:text-slate-400">
+                            ¿Ya tienes una cuenta? 
+                            <a class="text-primary hover:text-blue-600 font-bold ml-1 transition-colors" href="#">Inicia sesión</a>
+            </p>
+        </div>
+        <!-- Secondary Navigation (About / Language) -->
+        <!-- <div class="mt-12 flex justify-center items-center space-x-6">
+            <a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Sobre la plataforma</a>
+            <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+            <a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Ayuda</a>
+            <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+            <div class="flex items-center space-x-1 cursor-pointer group">
+            <span class="material-icons text-sm text-slate-400 group-hover:text-primary transition-colors">language</span>
+            <span class="text-xs text-slate-400 group-hover:text-primary transition-colors">Español (MX)</span>
+            </div>
+        </div> -->
+    </div>
+</body>
