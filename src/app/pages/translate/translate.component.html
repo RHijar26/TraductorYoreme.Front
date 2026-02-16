@@ -1,0 +1,178 @@
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+    /* Custom scrollbar for textareas */
+    textarea::-webkit-scrollbar {
+        width: 8px;
+    }
+    textarea::-webkit-scrollbar-track {
+        background: transparent; 
+    }
+    textarea::-webkit-scrollbar-thumb {
+        background: #cbd5e1; 
+        border-radius: 4px;
+    }
+    textarea::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; 
+    }
+
+    
+
+</style>
+
+<main class="flex flex-1 flex-col items-center justify-start p-4 md:p-8 lg:p-12">
+    <div class="w-full max-w-6xl">
+    <!-- Translator Card -->
+        <div class="overflow-hidden rounded-2xl bg-white dark:bg-[#15202b] shadow-lg border border-slate-200 dark:border-slate-800">
+            <!-- Language Selector Toolbar -->            
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#1a2633] px-2 md:px-6">
+                <!-- Source Language -->
+                <div class="flex w-full md:w-5/12 justify-start gap-1 py-2 md:py-0 overflow-x-auto no-scrollbar">
+                    <button                    
+                    class="border-b-[3px] border-primary px-4 py-3 text-sm font-bold text-primary bg-white dark:bg-[#15202b] rounded-t-lg shadow-sm transition-all duration-300 hover:shadow-md"
+                    [class]="{
+                        'border-primary text-primary': languages.source.active,
+                        'border-transparent text-slate-600 dark:text-slate-400': !languages.source.active
+                    }"
+                    >
+                    <span class="inline-block transition-transform duration-300" >
+                        {{ languages.source.name }}
+                    </span>
+                    </button>
+                </div>            
+                <!-- Swap Button -->
+                <div class="flex w-full md:w-2/12 justify-center py-2 md:py-0">
+                    <button 
+                    (click)="swapLanguages()"
+                    class="group flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#15202b] text-slate-500 hover:bg-slate-50 hover:text-primary dark:hover:bg-slate-800 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 active:scale-95"
+                    aria-label="Intercambiar idiomas"
+                    >
+                    <span class="material-symbols-outlined transition-all duration-500 ease-out group-hover:rotate-180">
+                        swap_horiz
+                    </span>
+                    </button>
+                </div>            
+                <!-- Target Language -->
+                <div class="flex w-full md:w-5/12 justify-start md:justify-end gap-1 py-2 md:py-0 overflow-x-auto no-scrollbar">
+                    <button                  
+                    class="border-b-[3px] border-primary px-4 py-3 text-sm font-bold text-primary bg-white dark:bg-[#15202b] rounded-t-lg shadow-sm transition-all duration-300 hover:shadow-md"
+                    [class]="{
+                        'border-primary text-primary': languages.target.active,
+                        'border-transparent text-slate-600 dark:text-slate-400': !languages.target.active
+                    }"
+                    >
+                    <span class="inline-block transition-transform duration-300" >
+                        {{ languages.target.name }}
+                    </span>
+                    </button>
+                </div>
+            </div>
+            <!-- Text Areas Container -->
+            <form [formGroup]="form" style="height: 100%;">
+                <div class="flex flex-col md:flex-row min-h-[350px]">
+                    <!-- Input Section -->
+                    <div class="relative flex w-full md:w-1/2 flex-col border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 p-4 md:p-6 group/input">
+                        <div class="flex flex-1 flex-col">
+                                
+                                <textarea 
+                                formControlName="inputOriginText"
+                                class="flex-1 w-full resize-none border-none bg-transparent p-2 text-xl md:text-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-0 leading-relaxed" placeholder="Escribe texto aquí..." spellcheck="false"></textarea>
+                                <!-- Input Tools -->
+                        
+                            <div class="flex items-center justify-between pt-4 mt-2">
+                                <div class="flex gap-2">
+                                    <button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Escuchar">
+                                        <span class="material-symbols-outlined text-[20px]">volume_up</span>
+                                    </button>
+                                    <button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Dictado por voz">
+                                        <span class="material-symbols-outlined text-[20px]">mic</span>
+                                    </button>
+                                </div>
+                                <div class="flex gap-3">
+                                    <button (click)="clearInput()" class="hidden group-focus-within/input:flex md:flex h-10 w-10 items-center justify-center rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Borrar texto">
+                                        <span class="material-symbols-outlined text-[20px]">close</span>
+                                    </button>                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Output Section -->
+                    <div class="relative flex w-full md:w-1/2 flex-col bg-slate-50/50 dark:bg-[#1a2633]/50 p-4 md:p-6">
+                        <div class="flex flex-1 flex-col">
+                            <div class="flex-1 w-full p-2 text-xl md:text-2xl text-slate-900 dark:text-white leading-relaxed">
+                                <textarea #outputTextArea formControlName="outputText" class="flex-1 w-full resize-none border-none bg-transparent p-2 text-xl md:text-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-0 leading-relaxed" placeholder="La traducción aparecerá aquí..." spellcheck="false"></textarea>
+                            </div>
+                            <!-- Output Tools -->
+                            <div class="flex items-center justify-between pt-4 mt-2">
+                                <div class="flex gap-2">
+                                    <button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Escuchar">
+                                        <span class="material-symbols-outlined text-[20px]">volume_up</span>
+                                    </button>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Copiar traducción">
+                                        <span class="material-symbols-outlined text-[20px]">content_copy</span>
+                                    </button>
+                                    <button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Sugerir cambios">
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </button>
+                                    <button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Compartir">
+                                    <span class="material-symbols-outlined text-[20px]">share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- History / Footer Section -->
+        <div class="mt-8 flex flex-col gap-6">
+        <div class="flex items-center justify-between">
+        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+        <span class="material-symbols-outlined text-slate-500">history</span>
+                                Historial reciente
+                            </h3>
+        <button class="text-sm font-semibold text-primary hover:underline">Borrar todo</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- History Item 1 -->
+        <div class="group relative flex flex-col gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#15202b] p-4 transition hover:shadow-md cursor-pointer">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+        <span>Español → Yoreme</span>
+        <button class="opacity-0 group-hover:opacity-100 transition p-1 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full">
+        <span class="material-symbols-outlined text-[16px]">star</span>
+        </button>
+        </div>
+        <p class="truncate text-slate-800 dark:text-slate-200 font-medium">Buenos días, ¿cómo estás?</p>
+        <p class="truncate text-slate-500 dark:text-slate-400">Ketche alheya, ¿jaisa pane?</p>
+        </div>
+        <!-- History Item 2 -->
+        <div class="group relative flex flex-col gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#15202b] p-4 transition hover:shadow-md cursor-pointer">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+        <span>Español → Yoreme</span>
+        <button class="opacity-0 group-hover:opacity-100 transition p-1 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full">
+        <span class="material-symbols-outlined text-[16px]">star</span>
+        </button>
+        </div>
+        <p class="truncate text-slate-800 dark:text-slate-200 font-medium">Gracias por tu ayuda</p>
+        <p class="truncate text-slate-500 dark:text-slate-400">Lios enchi chiokoe uttesi</p>
+        </div>
+        <!-- History Item 3 -->
+        <div class="group relative flex flex-col gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#15202b] p-4 transition hover:shadow-md cursor-pointer">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+        <span>Yoreme → Español</span>
+        <button class="opacity-0 group-hover:opacity-100 transition p-1 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full">
+        <span class="material-symbols-outlined text-[16px]">star</span>
+        </button>
+        </div>
+        <p class="truncate text-slate-800 dark:text-slate-200 font-medium">Lios enchi ania</p>
+        <p class="truncate text-slate-500 dark:text-slate-400">Dios te ayude (Saludo)</p>
+        </div>
+        </div>
+        </div>
+        <!-- About Section -->
+        <app-join-us></app-join-us>
+    </div>
+</main>

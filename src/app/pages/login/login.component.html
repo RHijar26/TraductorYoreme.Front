@@ -1,0 +1,53 @@
+<div class="layout-container flex h-full grow flex-col items-center justify-center py-10 px-4">
+    <!-- Login Card Container -->
+    <div class="flex flex-col w-full max-w-[440px] bg-white dark:bg-slate-800 rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-none border border-[#e7edf3] dark:border-slate-700 overflow-hidden relative">
+    <!-- Card Header Section -->
+        <div class="flex flex-col items-center pt-10 pb-4 px-8 relative z-10">
+            <div class="mb-4 flex items-center justify-center size-14 rounded-full bg-primary/10 text-primary ring-4 ring-primary/5">
+                <span class="material-symbols-outlined text-3xl">admin_panel_settings</span>
+            </div>
+            <h2 class="text-[#0d141b] dark:text-white tracking-tight text-[26px] font-bold leading-tight text-center">Acceso Administrativo</h2>
+            <p class="text-slate-500 dark:text-slate-400 text-sm text-center mt-2 leading-relaxed">
+                Gestiona las traducciones de la plataforma Yoreme
+            </p>
+        </div>
+        <!-- Form Section -->
+        <div class="px-8 pb-10 pt-2 relative z-10">
+            <form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+            <!-- Username Input: Modified TextField component -->
+            <label class="flex flex-col w-full group">
+            <p class="text-[#0d141b] dark:text-slate-200 text-sm font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">Usuario</p>
+            <div class="relative">
+            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 focus:border-primary h-12 pl-11 pr-4 text-sm font-normal leading-normal placeholder:text-[#4c739a] dark:placeholder:text-slate-500 transition-all duration-200" placeholder="Ingresa tu usuario"/>
+            <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-slate-500 pointer-events-none flex items-center group-focus-within:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[20px]">person</span>
+            </div>
+            </div>
+            </label>
+            <!-- Password Input: Modified TextField component -->
+            <label class="flex flex-col w-full group">
+                <div class="flex justify-between items-baseline pb-2">
+                    <p class="text-[#0d141b] dark:text-slate-200 text-sm font-medium leading-normal group-focus-within:text-primary transition-colors">Contraseña</p>
+                </div>
+                <div class="relative">
+                    <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 focus:border-primary h-12 pl-11 pr-4 text-sm font-normal leading-normal placeholder:text-[#4c739a] dark:placeholder:text-slate-500 transition-all duration-200" placeholder="Ingresa tu contraseña" type="password"/>
+                    <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-slate-500 pointer-events-none flex items-center group-focus-within:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-[20px]">lock</span>
+                    </div>
+                </div>
+                <div class="flex justify-end pt-2">
+                    <a class="text-xs font-medium text-primary hover:text-[#1068c2] transition-colors decoration-transparent hover:underline" href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+            </label>
+           
+            <app-join-us></app-join-us>
+
+            <!-- Primary Action Button -->
+            <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#1068c2] active:scale-[0.98] transition-all shadow-sm mt-2 focus:ring-4 focus:ring-primary/30 outline-none">
+                <span class="truncate">Iniciar Sesión</span>
+            </button>
+            </form>
+        </div>    
+   
+    </div>
+</div>
