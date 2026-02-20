@@ -3,73 +3,88 @@
     <div class="w-full max-w-[500px]">
         <!-- Header / Logo Section -->
         <div class="text-center mb-8">
-        <div class="inline-flex items-center justify-center space-x-2">
-        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
-        <span class="material-icons text-white">translate</span>
-        </div>
-        <h1 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight">Yoreme Traduce</h1>
-        </div>
-        <p class="mt-2 text-slate-500 dark:text-slate-400 font-medium">Únete a la comunidad de traducción</p>
+            <div class="inline-flex items-center justify-center space-x-2">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-icons text-white">translate</span>
+                </div>
+                <h1 class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight">Yoreme Translate</h1>
+            </div>
+            <p class="mt-2 text-slate-500 dark:text-slate-400 font-medium">Únete a la comunidad de traducción</p>
         </div>
         <!-- Registration Card -->
         <div class="bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none rounded-xl border border-slate-100 dark:border-slate-800 p-8 md:p-10">
-            <form action="#" class="space-y-5">
-            <!-- Full Name Field -->
+            <form action="#" class="space-y-5">   
+            <!-- Name Field -->
             <div>
-            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="full-name">Nombre Completo</label>
-            <div class="relative">
-            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">person</span>
-            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="full-name" placeholder="Ej. Juan Pérez" type="text"/>
-            </div>
-            </div>
+                <div>
+                 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre</label>
+                 <div class="relative">
+                 <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">badge</span>
+                 <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                 </div>
+                </div>
+                <!-- LastName Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">       
+                    <!-- LastName Field -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Paterno</label>
+                        <div class="relative">
+                        
+                        <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                        </div>
+                    </div>
+    
+                    <!-- SecondLastName Field -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Materno</label>
+                        <div class="relative">                    
+                        <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                        </div>
+                    </div>
+                </div>
+            </div>  
             <!-- Email Field -->
             <div>
-            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Correo Electrónico</label>
-            <div class="relative">
-            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
-            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="email" placeholder="tu@correo.com" type="email"/>
+                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Correo Electrónico</label>
+                <div class="relative">
+                    <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
+                    <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="email"/>
+                </div>
             </div>
-            </div>
-            <!-- Username Field -->
-            <div>
-            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre de Usuario</label>
-            <div class="relative">
-            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">badge</span>
-            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="username" placeholder="juanperez123" type="text"/>
-            </div>
-            </div>
+ 
+
             <!-- Password Row -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Password Field -->
-            <div>
-            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Contraseña</label>
-            <div class="relative">
-            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
-            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="password" placeholder="••••••••" type="password"/>
-            </div>
-            </div>
-            <!-- Confirm Password Field -->
-            <div>
-            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm-password">Confirmar</label>
-            <div class="relative">
-            <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">check_circle_outline</span>
-            <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400" id="confirm-password" placeholder="••••••••" type="password"/>
-            </div>
-            </div>
+                <!-- Password Field -->
+                <div>
+                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Contraseña</label>
+                <div class="relative">
+                <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
+                <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                </div>
+                </div>
+                <!-- Confirm Password Field -->
+                <div>
+                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm-password">Confirmar</label>
+                <div class="relative">
+                <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">check_circle_outline</span>
+                <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                </div>
+                </div>
             </div>
             <!-- Terms and Conditions -->
-            <div class="flex items-start space-x-3 pt-2">
-            <div class="flex items-center h-5">
-            <input class="w-4 h-4 text-primary border-slate-300 dark:border-slate-700 rounded focus:ring-primary bg-slate-50 dark:bg-slate-800" id="terms" type="checkbox"/>
-            </div>
-            <label class="text-xs text-slate-500 dark:text-slate-400 leading-normal" for="terms">
-                                    Acepto los <a class="text-primary hover:underline font-medium" href="#">Términos de Servicio</a> y la <a class="text-primary hover:underline font-medium" href="#">Política de Privacidad</a> de Yoreme Traduce.
-                                </label>
-            </div>
+            <!-- <div class="flex items-start space-x-3 pt-2">
+                <div class="flex items-center h-5">
+                    <input class="w-4 h-4 text-primary border-slate-300 dark:border-slate-700 rounded focus:ring-primary bg-slate-50 dark:bg-slate-800" id="terms" type="checkbox"/>
+                </div>
+                <label class="text-xs text-slate-500 dark:text-slate-400 leading-normal" for="terms">
+                    Acepto los <a class="text-primary hover:underline font-medium" href="#">Términos de Servicio</a> y la <a class="text-primary hover:underline font-medium" href="#">Política de Privacidad</a> de Yoreme Traduce.
+                </label>
+            </div> -->
             <!-- Submit Button -->
             <button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-md shadow-primary/20 transition-all duration-200 transform active:scale-[0.98] mt-2" type="submit">
                                 Crear Cuenta
-                            </button>
+            </button>
             </form>
             <!-- Social Registration (Optional/Modern touch) -->
             <!-- <div class="relative my-8">
