@@ -13,65 +13,65 @@
         </div>
         <!-- Registration Card -->
         <div class="bg-white dark:bg-slate-900 shadow-xl shadow-slate-200/50 dark:shadow-none rounded-xl border border-slate-100 dark:border-slate-800 p-8 md:p-10">
-            <form action="#" class="space-y-5">   
-            <!-- Name Field -->
-            <div>
+            <form  [formGroup]="form" class="space-y-5">   
+                <!-- Name Field -->
                 <div>
-                 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre</label>
-                 <div class="relative">
-                 <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">badge</span>
-                 <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
-                 </div>
-                </div>
-                <!-- LastName Row -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">       
-                    <!-- LastName Field -->
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Paterno</label>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre</label>
                         <div class="relative">
-                        
-                        <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                            <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">badge</span>
+                            <input formControlName="name" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
                         </div>
                     </div>
-    
-                    <!-- SecondLastName Field -->
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Materno</label>
-                        <div class="relative">                    
-                        <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                    <!-- LastName Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">       
+                        <!-- LastName Field -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Paterno</label>
+                            <div class="relative">
+                            
+                            <input formControlName="lastName" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                            </div>
+                        </div>
+        
+                        <!-- SecondLastName Field -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Materno</label>
+                            <div class="relative">                    
+                                <input formControlName="secondLastName" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                            </div>
                         </div>
                     </div>
+                </div>  
+                <!-- Email Field -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Correo Electrónico</label>
+                    <div class="relative">
+                        <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
+                        <input formControlName="email" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="email"/>
+                    </div>
                 </div>
-            </div>  
-            <!-- Email Field -->
-            <div>
-                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Correo Electrónico</label>
-                <div class="relative">
-                    <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
-                    <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="email"/>
-                </div>
-            </div>
  
 
-            <!-- Password Row -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Password Field -->
-                <div>
-                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Contraseña</label>
-                <div class="relative">
-                <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
-                <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                <!-- Password Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Password Field -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Contraseña</label>
+                        <div class="relative">
+                            <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
+                            <input formControlName="passWord" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                        </div>
+                    </div>
+                    <!-- Confirm Password Field -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm-password">Confirmar</label>
+                        <div class="relative">
+                            <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">check_circle_outline</span>
+                            <input formControlName="confirmPassWord" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <!-- Confirm Password Field -->
-                <div>
-                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm-password">Confirmar</label>
-                <div class="relative">
-                <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">check_circle_outline</span>
-                <input class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
-                </div>
-                </div>
-            </div>
             <!-- Terms and Conditions -->
             <!-- <div class="flex items-start space-x-3 pt-2">
                 <div class="flex items-center h-5">
@@ -81,11 +81,11 @@
                     Acepto los <a class="text-primary hover:underline font-medium" href="#">Términos de Servicio</a> y la <a class="text-primary hover:underline font-medium" href="#">Política de Privacidad</a> de Yoreme Traduce.
                 </label>
             </div> -->
-            <!-- Submit Button -->
-            <button class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-md shadow-primary/20 transition-all duration-200 transform active:scale-[0.98] mt-2" type="submit">
-                                Crear Cuenta
-            </button>
-            </form>
+        </form>
+        <!-- Submit Button -->
+        <button (click)="register()" class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-md shadow-primary/20 transition-all duration-200 transform active:scale-[0.98] mt-2" >
+                            Registrarse
+        </button>
             <!-- Social Registration (Optional/Modern touch) -->
             <!-- <div class="relative my-8">
                 <div class="absolute inset-0 flex items-center">
@@ -126,3 +126,5 @@
         </div> -->
     </div>
 </body>
+
+

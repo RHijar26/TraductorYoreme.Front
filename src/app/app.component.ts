@@ -10,6 +10,8 @@ import { HeaderComponent } from "./layout/header/header.component";
         <app-header></app-header>
 
         <router-outlet />        
+
+        
     `,        
 })
 export class AppComponent implements OnInit {
