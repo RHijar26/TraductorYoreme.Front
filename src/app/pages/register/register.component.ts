@@ -3,23 +3,33 @@ import { UserService } from '../../services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { validate } from '@angular/forms/signals';
 import { CommonModule } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InfoModalComponent } from '../../modals/info.modal/info.modal.component';
+import { Router, RouterLink } from "@angular/router";
+import { IconsConst } from '../../helpers/consts/icons.conts';
+import { ModalInfoTypes } from '../../helpers/enums/modal.info.types.enum';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './register.component.html',
   styles: ``,
 })
 export class RegisterComponent {
 
+  
   userService = inject(UserService)
+  ngbModal = inject(NgbModal);
+  private router = inject(Router)
+  
   form = new FormGroup({
-    name: new FormControl<string|null>(null),    
-    lastName: new FormControl<string|null>(null),  
-    secondLastName: new FormControl<string|null>(null),    
-    email: new FormControl<string|null>(null),    
-    passWord: new FormControl<string|null>(null),     
-    confirmPassWord: new FormControl<string|null>(null),    
+    name: new FormControl<string|null>(null, Validators.required),    
+    lastName: new FormControl<string|null>(null, Validators.required),  
+    secondLastName: new FormControl<string|null>(null, Validators.required),    
+    email: new FormControl<string|null>(null, Validators.required),    
+    passWord: new FormControl<string|null>(null, Validators.required),     
+    confirmPassWord: new FormControl<string|null>(null, Validators.required),    
   });
 
   comparePassWord() : Boolean{
@@ -31,7 +41,7 @@ export class RegisterComponent {
 
 
   register(){
-    if(!this.form.valid){
+    if(!this.form.valid){            
       this.form.markAllAsTouched();
       return;
     }    
@@ -45,10 +55,28 @@ export class RegisterComponent {
     }
         
     this.userService.register(payLoad).subscribe({
-      next(value) {
-        console.log(value)
+      next: (response) => {
+
+        const modalRef = this.ngbModal.open(InfoModalComponent, {
+          size: 'lg',
+          centered: true
+        });    
+
+        modalRef.componentInstance.message = response.message;       
+        modalRef.componentInstance.type = ModalInfoTypes.Succes;          
+        
+        modalRef.closed
+          .pipe(take(1))
+          .subscribe(() => {
+             this.router.navigate(['/login']);
+          }
+        );  
       },
     })
+  }
+
+  openInfoMOdal(){
+
   }
 
 }

@@ -6,12 +6,9 @@ import { HeaderComponent } from "./layout/header/header.component";
     selector: 'app-root',
     imports: [RouterOutlet, HeaderComponent],
     template: 
-    `
-        <app-header></app-header>
+    `        
 
         <router-outlet />        
-
-        
     `,        
 })
 export class AppComponent implements OnInit {

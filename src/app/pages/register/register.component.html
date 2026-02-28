@@ -17,10 +17,13 @@
                 <!-- Name Field -->
                 <div>
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre</label>
+                        <label  class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Nombre</label>
                         <div class="relative">
                             <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">badge</span>
-                            <input formControlName="name" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                            <input 
+                                [class.is-invalid]="this.form.controls.name.invalid && this.form.controls.name.touched"
+                                formControlName="name" 
+                                class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
                         </div>
                     </div>
                     <!-- LastName Row -->
@@ -30,7 +33,10 @@
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Paterno</label>
                             <div class="relative">
                             
-                            <input formControlName="lastName" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                            <input 
+                                [class.is-invalid]="this.form.controls.lastName.invalid && this.form.controls.lastName.touched"
+                                formControlName="lastName" 
+                                class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
                             </div>
                         </div>
         
@@ -38,7 +44,10 @@
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="username">Apellido Materno</label>
                             <div class="relative">                    
-                                <input formControlName="secondLastName" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
+                                <input 
+                                    [class.is-invalid]="this.form.controls.secondLastName.invalid && this.form.controls.secondLastName.touched"
+                                    formControlName="secondLastName" 
+                                    class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="text"/>
                             </div>
                         </div>
                     </div>
@@ -48,7 +57,10 @@
                     <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Correo Electrónico</label>
                     <div class="relative">
                         <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
-                        <input formControlName="email" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="email"/>
+                        <input 
+                            [class.is-invalid]="this.form.controls.email.invalid && this.form.controls.email.touched"
+                            formControlName="email" 
+                            class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="email"/>
                     </div>
                 </div>
  
@@ -60,7 +72,10 @@
                         <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Contraseña</label>
                         <div class="relative">
                             <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
-                            <input formControlName="passWord" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                            <input 
+                                [class.is-invalid]="this.form.controls.passWord.invalid && this.form.controls.passWord.touched"
+                                formControlName="passWord"
+                                class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
                         </div>
                     </div>
                     <!-- Confirm Password Field -->
@@ -68,7 +83,10 @@
                         <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm-password">Confirmar</label>
                         <div class="relative">
                             <span class="material-icons absolute left-3 top-3/4 -translate-y-1/2 text-slate-400 text-lg">check_circle_outline</span>
-                            <input formControlName="confirmPassWord" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
+                            <input 
+                                [class.is-invalid]="this.form.controls.confirmPassWord.invalid && this.form.controls.confirmPassWord.touched"
+                                formControlName="confirmPassWord" 
+                                class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all dark:text-white placeholder:text-slate-400"  type="password"/>
                         </div>
                     </div>
                 </div>
@@ -110,7 +128,7 @@
         <div class="mt-8 text-center">
             <p class="text-slate-600 dark:text-slate-400">
                             ¿Ya tienes una cuenta? 
-                            <a class="text-primary hover:text-blue-600 font-bold ml-1 transition-colors" href="#">Inicia sesión</a>
+                            <a class="text-primary hover:text-blue-600 font-bold ml-1 transition-colors" routerLink="/">Inicia sesión</a>
             </p>
         </div>
         <!-- Secondary Navigation (About / Language) -->

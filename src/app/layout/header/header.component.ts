@@ -1,6 +1,8 @@
 import { ConstantPool } from '@angular/compiler';
 import { Component, inject, signal, Signal } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
+import { TokenService } from '../../services/token.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,7 @@ import { Router, RouterLink } from "@angular/router";
 })
 export class HeaderComponent {
   router = inject(Router);
+  authService = inject(AuthService);
 
   currentUrl = signal<string>(this.router.url);
 
@@ -18,4 +21,10 @@ export class HeaderComponent {
       this.currentUrl.set(this.router.url);
     });
   }
+
+  
+  logout(){
+    this.authService.logout();
+  }
+
 }

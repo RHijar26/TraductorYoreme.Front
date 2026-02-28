@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class TokenService {
-  private readonly tokenName = 'Cnv';
-  private readonly userToken = `token${this.tokenName}`;
-  private readonly userTokenExpiration = `tokenExp${this.tokenName}`;
+export class TokenService {  
+  private readonly userToken = `token`;
+  private readonly userTokenExpiration = `tokenExp`;
 
   saveToken(accessToken: string): void {
     localStorage.setItem(this.userToken, accessToken);
