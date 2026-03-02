@@ -1,0 +1,84 @@
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <main class="flex-1 px-4 sm:px-10 lg:px-40 py-8">
+            <!-- Page Header -->
+            <div class="flex flex-wrap justify-between items-end gap-4 mb-8">
+                <div class="flex flex-col gap-1">
+                    <h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black tracking-tight">Gestión de Modelos</h1>
+                    <p class="text-slate-500 dark:text-slate-400 text-base">Configuración de motores NMT.</p>
+                </div>
+            </div>
+
+            <!-- Models Section -->
+            <section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+                    <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">model_training</span>
+                        Modelos de Traducción Activos
+                    </h2>
+                    <button (click)="openAddModelModal()" class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-xs font-bold transition-all hover:scale-[1.02]">
+                        <span class="material-symbols-outlined mr-1 text-base">add</span>
+                        Agregar Nuevo Modelo
+                    </button>
+                </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
+                        <th class="px-6 py-4 font-semibold">Identificador</th>
+                        <th class="px-6 py-4 font-semibold">Descripción Técnica</th>
+                        <th class="px-6 py-4 font-semibold">Estado</th>
+                        <th class="px-6 py-4 font-semibold">BLEU Score</th>
+                        <th class="px-6 py-4 font-semibold">CHR++ Score</th>
+                        <th class="px-6 py-4 font-semibold">Fecha de Creación</th>
+                        <th class="px-6 py-4 font-semibold text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">NMT-V1-Mayo</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Basado en arquitectura Transformer con 6 capas.</td>
+                            <td class="px-6 py-4 text-sm">
+                            <span class="px-2 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-bold">Producción</span>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">32.4</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">32.4</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">10 Ene 2024</td>
+                            <td class="px-6 py-4 text-right">
+                            <button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">settings</span></button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                        <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">Transformer-Y-02</td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Optimizado para frases ceremoniales y rituales.</td>
+                        <td class="px-6 py-4 text-sm">
+                        <span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-xs font-bold">Testing</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">28.9</td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">28.9</td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">14 Mar 2024</td>
+                        <td class="px-6 py-4 text-right">
+                        <button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">settings</span></button>
+                        </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                        <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">RNN-Baseline</td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Modelo base heredado para comparativa.</td>
+                        <td class="px-6 py-4 text-sm">
+                        <span class="px-2 py-1 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400 text-xs font-bold">Archivado</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">21.2</td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">21.2</td>
+                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">01 Dic 2022</td>
+                        <td class="px-6 py-4 text-right">
+                        <button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">settings</span></button>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </section>
+        </main>
+    </div>
+</div>
+

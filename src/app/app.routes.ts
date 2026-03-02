@@ -7,6 +7,9 @@ import { SharedLayoutComponent } from './layout/shared.layout/shared.layout.comp
 import { AdminLayoutComponent } from './layout/admin.layout/admin.layout.component';
 import { authenticatedGuard } from './guards/authenticated.guard';
 import { PhrasesComponent } from './pages/phrases/phrases.component';
+import { RegionsComponent } from './pages/regions/regions.component';
+import { ModelsComponent } from './pages/models/models.component';
+import { UsersComponent } from './pages/users/users.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +43,21 @@ export const routes: Routes = [
       {
           path: '',
           component: PhrasesComponent,
+          canActivate: [authenticatedGuard],
+      },
+      {
+          path: 'regions',
+          component: RegionsComponent,
+          canActivate: [authenticatedGuard],
+      },
+      {
+          path: 'models',
+          component:  ModelsComponent,
+          canActivate: [authenticatedGuard],
+      },
+      {
+          path: 'users',
+          component:  UsersComponent,
           canActivate: [authenticatedGuard],
       }
     ]

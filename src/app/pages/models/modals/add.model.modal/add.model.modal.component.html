@@ -1,0 +1,89 @@
+<div class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <!-- Modal Content -->
+    <div class="bg-background-light dark:bg-background-dark w-full max-w-2xl rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+    <!-- Header -->
+        <div class="px-8 pt-8 pb-4 flex justify-between items-start">
+            <div class="flex flex-col gap-1">
+                <div class="flex items-center gap-3">
+                    <div class="bg-primary/10 p-2 rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-3xl">model_training</span>
+                    </div>
+                    <h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black tracking-tight">Registrar Nuevo Modelo</h1>
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mt-2">
+                    Configure los parámetros básicos para su nuevo motor de traducción Yoreme-Español.
+                </p>
+            </div>
+            <button (click)="close()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form Body -->
+        <form class="px-8 py-6 space-y-6">
+        <!-- Model Name Input -->
+        <div class="space-y-2">
+            <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
+                Nombre del Modelo
+            </label>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-9 -translate-y-1/2 text-slate-400 text-xl">label</span>
+                <input class="w-full pl-11 pr-4 h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400" placeholder="Ej. NMT-V2, GPT-4 Custom, Yoreme-Base-01" type="text"/>
+            </div>
+        </div>
+        <!-- Architecture Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Architecture Selector -->
+            <div class="space-y-2">
+                <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
+                    Tipo de Arquitectura
+                </label>
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-9 -translate-y-1/2 text-slate-400 text-xl">account_tree</span>
+                    <select class="w-full pl-11 pr-10 h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none appearance-none text-slate-900 dark:text-slate-100">
+                        <option disabled="" selected="" value="">Seleccione una arquitectura</option>
+                        <option value="transformer">Transformer (Attention is all you need)</option>
+                        <option value="lstm">RNN / LSTM Encoder-Decoder</option>
+                        <option value="bert">BERT-based Fine-tuning</option>
+                        <option value="custom">Arquitectura Personalizada</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Training Environment -->
+            <div class="space-y-2">
+                <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
+                    Entorno de Ejecución
+                </label>
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-9 -translate-y-1/2 text-slate-400 text-xl">memory</span>
+                    <select class="w-full pl-11 pr-10 h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none appearance-none text-slate-900 dark:text-slate-100">
+                        <option value="cloud">Nube (AWS/GCP)</option>
+                        <option value="local">Servidor Local (On-premise)</option>
+                        <option value="edge">Edge Computing</option>
+                    </select>                    
+                </div>
+            </div> 
+        </div>
+        <!-- Notes Textarea -->
+        <div class="space-y-2">
+            <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
+                Versión y Notas de Entrenamiento
+            </label>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-4 text-slate-400 text-xl">description</span>
+                <textarea class="w-full pl-11 pr-4 py-3 min-h-[140px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 resize-none" placeholder="Describa la versión, el dataset utilizado (ej. Corpus 2023-Q4) y notas relevantes sobre el entrenamiento..."></textarea>
+            </div>
+        </div>        
+      
+        </form>
+        <!-- Footer Actions -->
+        <div class="px-8 py-6 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-end gap-3 border-t border-slate-200 dark:border-slate-800">
+            <button (click)="close()" class="px-6 py-3 rounded-lg text-slate-600 dark:text-slate-300 font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors border border-slate-200 dark:border-slate-700">
+                Cancelar
+            </button>
+            <button class="px-8 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-xl">save</span>
+                Guardar Modelo
+            </button>
+        </div>
+    </div>
+</div>
