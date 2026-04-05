@@ -12,8 +12,6 @@ import { CommonModule } from '@angular/common';
 })
 export class InfoModalComponent {
   private ngbActiveModal = inject(NgbActiveModal);  
-  private sanitizer = inject(DomSanitizer);
-
   modalInfoTypes = ModalInfoTypes;
 
 
