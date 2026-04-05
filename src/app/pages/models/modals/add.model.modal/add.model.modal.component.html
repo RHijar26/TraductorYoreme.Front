@@ -8,7 +8,7 @@
                     <div class="bg-primary/10 p-2 rounded-lg">
                         <span class="material-symbols-outlined text-primary text-3xl">model_training</span>
                     </div>
-                    <h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black tracking-tight">Registrar Nuevo Modelo</h1>
+                    <h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black tracking-tight">{{modalTitle}}</h1>
                 </div>
                 <p class="text-slate-500 dark:text-slate-400 text-sm mt-2">
                     Configure los parámetros básicos para su nuevo motor de traducción Yoreme-Español.
@@ -19,7 +19,7 @@
             </button>
         </div>
         <!-- Form Body -->
-        <form class="px-8 py-6 space-y-6">
+        <form [formGroup]="form" class="px-8 py-6 space-y-6">
         <!-- Model Name Input -->
         <div class="space-y-2">
             <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
@@ -27,12 +27,11 @@
             </label>
             <div class="relative">
                 <span class="material-symbols-outlined absolute left-3 top-9 -translate-y-1/2 text-slate-400 text-xl">label</span>
-                <input class="w-full pl-11 pr-4 h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400" placeholder="Ej. NMT-V2, GPT-4 Custom, Yoreme-Base-01" type="text"/>
+                <input formControlName="name" maxlength="100" class="w-full pl-11 pr-4 h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400" placeholder="Ej. NMT-V2, GPT-4 Custom, Yoreme-Base-01" type="text"/>
             </div>
         </div>
         <!-- Architecture Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Architecture Selector -->
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6">            
             <div class="space-y-2">
                 <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
                     Tipo de Arquitectura
@@ -47,8 +46,7 @@
                         <option value="custom">Arquitectura Personalizada</option>
                     </select>
                 </div>
-            </div>
-            <!-- Training Environment -->
+            </div>         
             <div class="space-y-2">
                 <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
                     Entorno de Ejecución
@@ -61,8 +59,8 @@
                         <option value="edge">Edge Computing</option>
                     </select>                    
                 </div>
-            </div> 
-        </div>
+            </div>
+        </div> -->
         <!-- Notes Textarea -->
         <div class="space-y-2">
             <label class="block text-slate-700 dark:text-slate-300 text-sm font-semibold">
@@ -70,7 +68,7 @@
             </label>
             <div class="relative">
                 <span class="material-symbols-outlined absolute left-3 top-4 text-slate-400 text-xl">description</span>
-                <textarea class="w-full pl-11 pr-4 py-3 min-h-[140px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 resize-none" placeholder="Describa la versión, el dataset utilizado (ej. Corpus 2023-Q4) y notas relevantes sobre el entrenamiento..."></textarea>
+                <textarea formControlName="description" maxlength="1000" class="w-full pl-11 pr-4 py-3 min-h-[140px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-slate-900 dark:text-slate-100 placeholder:text-slate-400 resize-none" placeholder="Describa la versión, el dataset utilizado (ej. Corpus 2023-Q4) y notas relevantes sobre el entrenamiento..."></textarea>
             </div>
         </div>        
       
@@ -80,9 +78,9 @@
             <button (click)="close()" class="px-6 py-3 rounded-lg text-slate-600 dark:text-slate-300 font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors border border-slate-200 dark:border-slate-700">
                 Cancelar
             </button>
-            <button class="px-8 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+            <button (click)="submit()" class="px-8 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
                 <span class="material-symbols-outlined text-xl">save</span>
-                Guardar Modelo
+                Guardar
             </button>
         </div>
     </div>

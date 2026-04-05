@@ -16,7 +16,7 @@ export class ModalService {
       centered: true
     });
     
-    modalRef.componentInstance.message = err.error.error ?? 'Hubo un';    
+    modalRef.componentInstance.message = err.error.error ?? 'Hubo un Error, Intente de nuevo más tarde.';    
   }
 
 }

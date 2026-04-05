@@ -35,45 +35,24 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">NMT-V1-Mayo</td>
-                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Basado en arquitectura Transformer con 6 capas.</td>
+                        <tr *ngFor="let model of models()" class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">{{ model.name }}</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{{ model.description }}</td>
                             <td class="px-6 py-4 text-sm">
-                            <span class="px-2 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-bold">Producción</span>
+                                <span [class]=model.class>{{ model.state }}</span>
                             </td>
-                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">32.4</td>
-                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">32.4</td>
-                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">10 Ene 2024</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 text-right">{{ model.bleuScore }}</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 text-right">{{ model.chrScore }}</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{{ model.createDate}}</td>
                             <td class="px-6 py-4 text-right">
-                            <button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">settings</span></button>
+                                <button (click)="openConfigureModelModal(model)" class="text-primary hover:text-primary/80 transition-colors">
+                                    <span class="material-symbols-outlined text-xl">settings</span>
+                                </button>
+                                <button (click)="openConfigureModelModal(model)" class="text-red-700 hover:text-red-800/80 transition-colors">                                    
+                                    <span class="material-symbols-outlined text-xl">settings</span>
+                                </button>
                             </td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                        <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">Transformer-Y-02</td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Optimizado para frases ceremoniales y rituales.</td>
-                        <td class="px-6 py-4 text-sm">
-                        <span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-xs font-bold">Testing</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">28.9</td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">28.9</td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">14 Mar 2024</td>
-                        <td class="px-6 py-4 text-right">
-                        <button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">settings</span></button>
-                        </td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                        <td class="px-6 py-4 text-sm font-bold text-slate-900 dark:text-slate-100">RNN-Baseline</td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">Modelo base heredado para comparativa.</td>
-                        <td class="px-6 py-4 text-sm">
-                        <span class="px-2 py-1 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400 text-xs font-bold">Archivado</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">21.2</td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">21.2</td>
-                        <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">01 Dic 2022</td>
-                        <td class="px-6 py-4 text-right">
-                        <button class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">settings</span></button>
-                        </td>
-                        </tr>
+                        </tr>                        
                     </tbody>
                 </table>
             </div>
