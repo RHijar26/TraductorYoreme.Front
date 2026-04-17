@@ -31,7 +31,7 @@
                         <th class="px-6 py-4 font-semibold">BLEU Score</th>
                         <th class="px-6 py-4 font-semibold">CHR++ Score</th>
                         <th class="px-6 py-4 font-semibold">Fecha de Creación</th>
-                        <th class="px-6 py-4 font-semibold text-right">Acciones</th>
+                        <th class="px-6 py-4 font-semibold text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
@@ -45,12 +45,15 @@
                             <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 text-right">{{ model.chrScore }}</td>
                             <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{{ model.createDate}}</td>
                             <td class="px-6 py-4 text-right">
-                                <button (click)="openConfigureModelModal(model)" class="text-primary hover:text-primary/80 transition-colors">
-                                    <span class="material-symbols-outlined text-xl">settings</span>
-                                </button>
-                                <button (click)="openConfigureModelModal(model)" class="text-red-700 hover:text-red-800/80 transition-colors">                                    
-                                    <span class="material-symbols-outlined text-xl">settings</span>
-                                </button>
+                                <div  class="flex items-center gap-4">                                    
+                                    <button (click)="openConfigureModelModal(model)" class="text-primary hover:text-primary/80 transition-colors">
+                                        <span class="material-symbols-outlined text-xl">settings</span>
+                                    </button>
+                                    <button (click)="openDeleteModelModal(model)" class="text-red-700 hover:text-red-800/80 transition-colors">                                    
+                                        <span class="material-symbols-outlined text-xl">delete</span>
+                                    </button>
+                                </div>
+
                             </td>
                         </tr>                        
                     </tbody>

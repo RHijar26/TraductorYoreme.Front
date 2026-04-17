@@ -37,7 +37,12 @@
                         <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{{ region.description }}</td>                
                         <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{{ region.createDate | date:'dd MMM yyyy' }}</td>
                         <td class="px-6 py-4 text-right">
-                            <button (click)="openEditRegionModal(region)" class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+                            <div  class="flex justify-end gap-4">                          
+                                <button (click)="openEditRegionModal(region)" class="text-primary hover:text-primary/80 transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+                                <button (click)="openDeleteRegionModal(region)" class="text-red-700 hover:text-red-800/80 transition-colors">                                    
+                                    <span class="material-symbols-outlined text-xl">delete</span>
+                                </button>
+                            </div>
                         </td>
                     </tr>               
                 </tbody>

@@ -6,6 +6,7 @@ import { Region } from './models/region';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { take } from 'rxjs';
+import { ConfirmModalComponent } from '../../modals/confirm.modal/confirm.modal.component';
 
 @Component({
   selector: 'app-regions',
@@ -63,4 +64,29 @@ export class RegionsComponent {
         this.reset();
     });
   }
+
+  openDeleteRegionModal(region: Region){
+    const modalRef = this.ngbModal.open(ConfirmModalComponent, {
+              size: 'lg',
+              centered: true
+     });
+
+    modalRef.componentInstance.title = '¿Estás seguro?';
+    modalRef.componentInstance.message = '¿Deseas eliminar esta región?';
+
+    modalRef.closed
+    .pipe(take(1))
+    .subscribe((response: any) => {            
+      if(response)
+        this.deleteRegion(region);
+    });
+  }
+
+  deleteRegion(region: Region) {
+    this.regionService.delete(region.id).subscribe({
+      next: (response) => {
+        this.reset();
+        }
+      });
+    }
 }

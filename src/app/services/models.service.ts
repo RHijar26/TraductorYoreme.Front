@@ -21,10 +21,19 @@ export class ModelsService {
         );
     }
 
-
     register(payload: object ) : Observable<any>{
         return this.http.post<object>(this.apiUrl + 'register',payload).pipe(
             map(responese => responese),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    }
+
+    delete(id: number) : Observable<any>{
+        return this.http.delete(this.apiUrl + id).pipe(
+            map(response => response),
             catchError((error: HttpErrorResponse) =>{
                 this.modalService.showErrorModal(error);
                 throw error;

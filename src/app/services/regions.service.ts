@@ -31,4 +31,13 @@ export class RegionsService {
         );
     }
 
+    delete(id: number) : Observable<any>{
+        return this.http.delete(this.apiUrl + id).pipe(
+            map(response => response),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    }
 }
