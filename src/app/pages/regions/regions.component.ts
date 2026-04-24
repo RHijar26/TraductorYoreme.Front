@@ -2,7 +2,7 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddRegionModalComponent } from './modals/add.region.modal/add.region.modal.component';
 import { RegionsService } from '../../services/regions.service';
-import { Region } from './models/region';
+import { Region } from '../../models/region';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { take } from 'rxjs';
@@ -28,7 +28,7 @@ export class RegionsComponent {
   reset() {
     this.regionService.getAll().subscribe({
       next: (response) => {
-        this.regions.set(response.data);
+        this.regions.set(response);
       }
     });
   }

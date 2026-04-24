@@ -8,60 +8,58 @@
         <span class="material-symbols-outlined">close</span>
         </button>
     </div>
-    <form class="p-8 space-y-6">
+    <form [formGroup]="form" class="p-8 space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="col-span-1 md:col-span-2 space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Frase Original</label>
-    <textarea class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese el texto original aquí..."></textarea>
+    <textarea formControlName="phrase" class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la frase aquí..."></textarea>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Idioma Original</label>
     <div class="relative">
-    <select class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
-    <option value="">Seleccionar idioma</option>
-    <option value="yoreme">Yoreme (Mayo)</option>
-    <option value="spanish">Español</option>
-    </select>
-    <span class="material-symbols-outlined absolute right-3 top-3 text-slate-400 pointer-events-none">unfold_more</span>
+        <select formControlName="soruceLengauge" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+            <option value="0">Seleccionar idioma</option>
+            @for (lenguage of lenguages(); track lenguage.id) {
+                <option [value]="lenguage.id">{{lenguage.name}}</option>
+            }
+        </select>    
     </div>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Idioma Destino</label>
     <div class="relative">
-    <select class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
-    <option value="">Seleccionar idioma</option>
-    <option value="spanish">Español</option>
-    <option value="yoreme">Yoreme (Mayo)</option>
-    </select>
-    <span class="material-symbols-outlined absolute right-3 top-3 text-slate-400 pointer-events-none">unfold_more</span>
+        <select formControlName="targetLengauge" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+            <option value="0">Seleccionar idioma</option>
+            @for (lenguage of lenguages(); track lenguage.id) {
+                <option [value]="lenguage.id">{{lenguage.name}}</option>
+            }
+        </select>    
     </div>
     </div>
     <div class="col-span-1 md:col-span-2 space-y-2">
-    <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Traducción</label>
-    <textarea class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la traducción correspondiente..."></textarea>
+        <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Traducción</label>
+        <textarea formControlName="traduction" class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la traducción correspondiente..."></textarea>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Región / Variante</label>
     <div class="relative">
-    <select class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
-    <option value="">Seleccionar región</option>
-    <option value="norte">Norte de Sinaloa</option>
-    <option value="sur">Sur de Sonora</option>
-    <option value="general">Uso General</option>
-    </select>
-    <span class="material-symbols-outlined absolute right-3 top-3 text-slate-400 pointer-events-none">location_on</span>
+    <select formControlName="region" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+        <option [value]="null">Seleccionar región</option>
+        <option value="norte">Norte de Sinaloa</option>
+        <option value="sur">Sur de Sonora</option>
+        <option value="general">Uso General</option>
+    </select>    
     </div>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Modelo de Traducción</label>
     <div class="relative">
-    <select class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
-    <option value="">Seleccionar modelo</option>
-    <option value="nmt-v1">Neural Machine Translation v1</option>
-    <option value="expert">Validación por Experto</option>
-    <option value="hybrid">Híbrido (IA + Humano)</option>
-    </select>
-    <span class="material-symbols-outlined absolute right-3 top-3 text-slate-400 pointer-events-none">neurology</span>
+    <select formControlName="model" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+        <option [value]="null">Seleccionar modelo</option>
+        <option value="nmt-v1">Neural Machine Translation v1</option>
+        <option value="expert">Validación por Experto</option>
+        <option value="hybrid">Híbrido (IA + Humano)</option>
+    </select>    
     </div>
     </div>
     </div>

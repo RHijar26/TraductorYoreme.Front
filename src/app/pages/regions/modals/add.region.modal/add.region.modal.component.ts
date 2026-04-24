@@ -3,7 +3,7 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RegionsService } from '../../../../services/regions.service';
-import { Region } from '../../models/region';
+import { Region } from '../../../../models/region';
 
 @Component({
   selector: 'add-region-modal',

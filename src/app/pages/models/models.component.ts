@@ -2,7 +2,7 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { AddModelModalComponent } from './modals/add.model.modal/add.model.modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModelsService } from '../../services/models.service';
-import { Model } from './models/model';
+import { Model } from '../../models/model';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { take } from 'rxjs';
@@ -28,8 +28,8 @@ export class ModelsComponent {
 
   reset() {
     this.modelService.getAll().subscribe({
-      next: (response) => {        
-        this.models.set(response.data);        
+      next: (response) => {                
+        this.models.set(response);        
       }      
     });
   }

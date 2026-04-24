@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModelsService } from '../../../../services/models.service';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Model } from '../../models/model';
+import { Model } from '../../../../models/model';
 import { single } from 'rxjs';
 
 @Component({
