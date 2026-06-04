@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { UserService } from '../../services/users.service';
+import { UserService } from '../users/services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { validate } from '@angular/forms/signals';
 import { CommonModule } from '@angular/common';

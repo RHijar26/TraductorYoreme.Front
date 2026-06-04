@@ -14,6 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
   
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,9 +31,38 @@
                     "danger": "#C3110C",
                     "background-light": "#f6f7f8",
                     "background-dark": "#101922",
+                    "status-error": "#ef4444",  
+                    "table-header-bg": "#f8fafc",
+                    "surface-border": "#e2e8f0",
+                    "sidebar-text": "#475569",
+                    "status-warning": "#f59e0b",
+                    "status-success": "#22c55e",
+                },
+                fontSize: {
+                        "code-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "title-md": ["18px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+                        "display-xl": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.025em", "fontWeight": "800" }]
+                },
+                spacing: {
+                        "section-gap": "1.5rem",
+                        "sidebar-width": "16rem",
+                        "element-gap": "0.75rem",
+                        "container-padding": "2rem",
+                        "header-height": "4rem"
                 },
                 fontFamily: {
-                    "display": ["Inter", "sans-serif"]
+                    "display": ["Inter", "sans-serif"],
+                    "code-sm": ["JetBrains Mono"],
+                    "title-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-xl": ["Inter"]
                 },
                 borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
             },

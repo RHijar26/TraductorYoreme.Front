@@ -1,1 +1,26 @@
-<p>users works!</p>
+<main class="flex-1 mt-header-height p-8 flex flex-col gap-section-gap">
+<!-- Page Header -->
+    <div class="flex items-end justify-between">
+        <div>
+            <h2 class="font-display-xl text-display-xl text-background-dark m-0">Gestión de Usuarios</h2>
+            <p class="font-body-md text-body-md text-sidebar-text mt-2">Administra el acceso y permisos de los colaboradores.</p>
+        </div>
+    </div>
+<!-- Tabs -->
+    <div class="flex border-b border-surface-border">
+        <button [class]="getTabClass('activeUsers')" (click)="setActiveTab('activeUsers')">Usuarios Activos</button>
+        <button [class]="getTabClass('pendingApproval')" (click)="setActiveTab('pendingApproval')">Pendientes de aprobación <span class="ml-2 inline-flex items-center justify-center bg-status-error text-white text-xs px-2 py-0.5 rounded-full">{{ pendingApprovalsCount }}</span></button>       
+    </div>
+<!-- Info Banner -->
+    <section >
+        @switch (activeTab) {
+            @case ('activeUsers') {
+                <app-users-catalog />
+            }
+
+            @case ('pendingApproval') {
+              <app-users-registered />
+            }        
+        }
+    </section>
+</main>

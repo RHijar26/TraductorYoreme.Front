@@ -1,0 +1,126 @@
+<div class="bg-white rounded-xl border border-surface-border shadow-sm flex flex-col">
+    <!-- Filters Bar -->
+    <div class="p-4 border-b border-surface-border bg-white flex items-center justify-between gap-4 rounded-t-xl">
+        <div class="flex items-center bg-slate-100 rounded-lg px-3 py-2 w-80 border border-transparent focus-within:border-[#137fec] transition-colors">
+            <span class="material-symbols-outlined text-sidebar-text text-[20px] mr-2">search</span>
+            <input
+                class="bg-transparent border-none focus:ring-0 p-0 font-body-sm text-body-sm w-full placeholder:text-sidebar-text text-[#101922]"
+                placeholder="Buscar por nombre o email..."
+                type="text"
+                [value]="searchTerm"
+                (input)="onSearchInput($event)"
+            />
+        </div>
+    <div class="flex gap-3">
+        <div class="relative">
+            <select
+                class="appearance-none bg-slate-100 border-none text-sidebar-text font-body-sm text-body-sm rounded-lg pl-3 pr-8 py-2 focus:ring-2 focus:ring-[#137fec]/20 cursor-pointer"
+                [value]="roleFilter"
+                (change)="onRoleFilterChange($event)"
+            >
+                <option value="all">Rol: Todos</option>
+                @for (role of roleOptions; track role) {
+                    <option [value]="role.toLowerCase()">{{ role }}</option>
+                }
+            </select>            
+        </div>
+        <div class="relative">
+            <select
+                class="appearance-none bg-slate-100 border-none text-sidebar-text font-body-sm text-body-sm rounded-lg pl-3 pr-8 py-2 focus:ring-2 focus:ring-[#137fec]/20 cursor-pointer"
+                [value]="statusFilter"
+                (change)="onStatusFilterChange($event)"
+            >
+                <option value="all">Estado: Todos</option>
+                <option value="active">Activo</option>
+                <option value="suspended">Suspendido</option>
+            </select>            
+        </div>
+    </div>
+    </div>
+<!-- Data Table -->
+    <div class="w-full overflow-x-auto rounded-b-xl">
+    <table class="w-full text-left border-collapse">
+        <thead class="bg-table-header-bg">
+            <tr>
+                <th class="font-label-caps text-label-caps text-sidebar-text uppercase px-6 py-3 border-b border-surface-border">Usuario</th>
+                <th class="font-label-caps text-label-caps text-sidebar-text uppercase px-6 py-3 border-b border-surface-border">Email</th>
+                <th class="font-label-caps text-label-caps text-sidebar-text uppercase px-6 py-3 border-b border-surface-border">Rol</th>
+                <th class="font-label-caps text-label-caps text-sidebar-text uppercase px-6 py-3 border-b border-surface-border">Estado</th>
+                <th class="font-label-caps text-label-caps text-sidebar-text uppercase px-6 py-3 border-b border-surface-border">Ingreso</th>
+                <th class="font-label-caps text-label-caps text-sidebar-text uppercase px-6 py-3 border-b border-surface-border w-16"></th>
+            </tr>
+        </thead>
+    <tbody class="font-body-sm text-body-sm text-[#101922] divide-y divide-surface-border">
+    @if (isLoading()) {
+        <tr>
+            <td class="px-6 py-6 text-sidebar-text" colspan="6">Cargando usuarios...</td>
+        </tr>
+    } @else if (!filteredUsers().length) {
+        <tr>
+            <td class="px-6 py-6 text-sidebar-text" colspan="6">No hay usuarios para mostrar.</td>
+        </tr>
+    } @else {
+        @for (user of filteredUsers(); track user.id) {
+            <tr class="hover:bg-slate-50/50 transition-colors group">
+                <td class="px-6 py-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-sidebar-text font-bold text-xs uppercase">
+                            {{ transforImgName(user.fullName) }}
+                        </div>
+                        <span class="font-bold">{{ user.fullName }}</span>
+                    </div>
+                </td>
+                <td class="px-6 py-3 text-sidebar-text font-code-sm text-code-sm">{{ user.email }}</td>
+                <td class="px-6 py-3">
+                    @if ( user.role === 'Administrador') {
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#137fec]/10 text-[#137fec] font-bold text-xs">
+                            <span class="material-symbols-outlined text-[14px]">shield_person</span>
+                            {{ user.role }}
+                        </span>
+                    } @else {
+                        <span class="text-sidebar-text">{{ user.role }}</span>
+                    }
+                </td>
+                <td class="px-6 py-3">
+                    <div class="flex items-center gap-2" [class.text-status-error]="!user.active" [class.font-medium]="!user.active">
+                        <div class="w-1.5 h-1.5 rounded-full" [class.bg-status-success]="user.active" [class.bg-status-error]="!user.active"></div>
+                        <span>{{ user.active ? 'Activo' : 'Suspendido' }}</span>
+                    </div>
+                </td>
+                <td class="px-6 py-3 text-sidebar-text">{{ user.createDate | date:'dd / MM / yyyy' }}</td>
+                <td class="px-6 py-3 text-right">
+                    <button class="text-sidebar-text opacity-0 group-hover:opacity-100 hover:text-[#101922] transition-all" type="button" aria-label="Opciones del usuario">
+                        <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                    </button>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+    </table>
+    </div>
+
+    <div class="px-4 py-3 border-t border-surface-border flex items-center justify-between bg-white rounded-b-xl">
+        <p class="font-body-sm text-body-sm text-sidebar-text">
+            Pagina {{ currentPage }} | {{ filteredUsers().length }} usuarios en esta pagina
+        </p>
+        <div class="flex items-center gap-2">
+            <button
+                type="button"
+                class="px-3 py-1.5 rounded-lg border border-surface-border text-sidebar-text font-body-sm text-body-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                (click)="previousPage()"
+                [disabled]="currentPage <= 1 || isLoading()"
+            >
+                Anterior
+            </button>
+            <button
+                type="button"
+                class="px-3 py-1.5 rounded-lg border border-surface-border text-sidebar-text font-body-sm text-body-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                (click)="nextPage()"
+                [disabled]="!hasNextPage || isLoading()"
+            >
+                Siguiente
+            </button>
+        </div>
+    </div>
+</div>

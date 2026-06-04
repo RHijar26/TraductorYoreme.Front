@@ -37,6 +37,8 @@ export class PhrasesComponent {
     });    
 
     modalRef.componentInstance.lenguages.set(this.lenguages.value());    
+    modalRef.componentInstance.regions.set(this.regions.value());    
+    modalRef.componentInstance.models.set(this.models.value());
   }   
 
 }

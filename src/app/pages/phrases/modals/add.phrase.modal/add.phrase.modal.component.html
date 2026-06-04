@@ -4,20 +4,20 @@
         <h1 class="text-2xl font-bold text-slate-900 dark:text-white">Cargar Nueva Frase</h1>
         <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Agregue un nuevo par lingüístico al catálogo multilingüe.</p>
         </div>
-        <button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-        <span class="material-symbols-outlined">close</span>
+        <button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" (click)="close()">
+            <span class="material-symbols-outlined">close</span>
         </button>
     </div>
     <form [formGroup]="form" class="p-8 space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="col-span-1 md:col-span-2 space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Frase Original</label>
-    <textarea formControlName="phrase" class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la frase aquí..."></textarea>
+        <textarea [class.is-invalid]="form.controls.phrase.invalid && form.controls.phrase.touched" formControlName="phrase" class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la frase aquí..."></textarea>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Idioma Original</label>
     <div class="relative">
-        <select formControlName="soruceLengauge" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+        <select formControlName="sourceLanguage" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
             <option value="0">Seleccionar idioma</option>
             @for (lenguage of lenguages(); track lenguage.id) {
                 <option [value]="lenguage.id">{{lenguage.name}}</option>
@@ -28,7 +28,7 @@
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Idioma Destino</label>
     <div class="relative">
-        <select formControlName="targetLengauge" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+        <select formControlName="targetLanguage" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
             <option value="0">Seleccionar idioma</option>
             @for (lenguage of lenguages(); track lenguage.id) {
                 <option [value]="lenguage.id">{{lenguage.name}}</option>
@@ -38,39 +38,39 @@
     </div>
     <div class="col-span-1 md:col-span-2 space-y-2">
         <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Traducción</label>
-        <textarea formControlName="traduction" class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la traducción correspondiente..."></textarea>
+        <textarea [class.is-invalid]="form.controls.traduction.invalid && form.controls.traduction.touched" formControlName="traduction" class="w-full min-h-[120px] rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary p-4 placeholder:text-slate-400" placeholder="Ingrese la traducción correspondiente..."></textarea>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Región / Variante</label>
     <div class="relative">
-    <select formControlName="region" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+    <select [class.is-invalid]="form.controls.region.invalid && form.controls.region.touched" formControlName="region" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
         <option [value]="null">Seleccionar región</option>
-        <option value="norte">Norte de Sinaloa</option>
-        <option value="sur">Sur de Sonora</option>
-        <option value="general">Uso General</option>
+        @for (region of regions(); track region.id) {
+            <option [value]="region.id">{{region.name}}</option>
+        }        
     </select>    
     </div>
     </div>
     <div class="space-y-2">
     <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Modelo de Traducción</label>
     <div class="relative">
-    <select formControlName="model" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
+    <select [class.is-invalid]="form.controls.model.invalid && form.controls.model.touched" formControlName="model" class="w-full h-12 rounded-lg border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary px-4 appearance-none">
         <option [value]="null">Seleccionar modelo</option>
-        <option value="nmt-v1">Neural Machine Translation v1</option>
-        <option value="expert">Validación por Experto</option>
-        <option value="hybrid">Híbrido (IA + Humano)</option>
+        @for (model of models(); track model.id) {
+            <option [value]="model.id">{{model.name}}</option>
+        }
     </select>    
     </div>
     </div>
     </div>
-    <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-end gap-3">
-    <button class="order-2 sm:order-1 px-6 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" type="button">
-                                    Cancelar
-                                </button>
-    <button class="order-1 sm:order-2 px-8 py-2.5 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2" type="submit">
-    <span class="material-symbols-outlined text-xl">save</span>
-                                    Guardar Frase
-                                </button>
-    </div>
+        <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-end gap-3">
+            <button class="order-2 sm:order-1 px-6 py-2.5 rounded-lg font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" type="button" (click)="close()">
+                Cancelar
+            </button>
+            <button (click)="submit()" class="order-1 sm:order-2 px-8 py-2.5 rounded-lg font-bold text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/20 transition-all flex items-center justify-center gap-2" type="submit">
+            <span class="material-symbols-outlined text-xl">save</span>
+                Guardar Frase
+            </button>
+        </div>
     </form>
 </div>
