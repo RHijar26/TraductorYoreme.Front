@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { catchError, map, Observable } from "rxjs";
 import { environment } from "../../../../environments/environment.development";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, httpResource, HttpResourceRef } from "@angular/common/http";
 import { ModalService } from "../../../services/modal.service";
 import { GetRegisterResponse } from "../interfaces/GetRegisterResponse.interface";
 
@@ -20,6 +20,10 @@ export class RegisterService {
                 throw error;
             })
         );
+    }
+
+    getPending() : HttpResourceRef<any | undefined>{
+        return httpResource<any  | undefined>(() => this.apiUrl + 'pending');
     }
 
     getAll() : Observable<GetRegisterResponse[]>{

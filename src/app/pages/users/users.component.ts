@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { UsersCatalogComponent } from "./pages/users.catalog/users.catalog.component";
 import { UsersRegisteredComponent } from "./pages/users.registered/users.registered.component";
+import { HttpResourceRef } from '@angular/common/http';
+import { RegisterService } from '../register/services/register.service';
 
 type UserTab = 'activeUsers' | 'pendingApproval' | 'rolesPermissions';
 
@@ -12,8 +14,22 @@ type UserTab = 'activeUsers' | 'pendingApproval' | 'rolesPermissions';
 })
 export class UsersComponent {
 
+  private registerService = inject(RegisterService);
+
   activeTab: UserTab = 'activeUsers';
   pendingApprovalsCount = 5;
+
+  pendingsResource: HttpResourceRef<any | undefined> = this.registerService.getPending();    
+  pendings = signal<number | undefined>(undefined);
+
+  constructor() {
+    effect(() => {
+      const pendings = this.pendingsResource.value();
+      if(pendings !== undefined){
+        this.pendings.set(pendings.data);
+      }
+    });
+  }
 
   setActiveTab(tab: UserTab): void {
     this.activeTab = tab;

@@ -9,7 +9,12 @@
 <!-- Tabs -->
     <div class="flex border-b border-surface-border">
         <button [class]="getTabClass('activeUsers')" (click)="setActiveTab('activeUsers')">Usuarios Activos</button>
-        <button [class]="getTabClass('pendingApproval')" (click)="setActiveTab('pendingApproval')">Pendientes de aprobación <span class="ml-2 inline-flex items-center justify-center bg-status-error text-white text-xs px-2 py-0.5 rounded-full">{{ pendingApprovalsCount }}</span></button>       
+        <button [class]="getTabClass('pendingApproval')" (click)="setActiveTab('pendingApproval')">Pendientes de aprobación 
+            @if (pendings()) 
+            {
+                <span  class="ml-2 inline-flex items-center justify-center bg-status-error text-white text-xs px-2 py-0.5 rounded-full">{{ pendings() }}</span>            
+            }
+        </button>       
     </div>
 <!-- Info Banner -->
     <section >
