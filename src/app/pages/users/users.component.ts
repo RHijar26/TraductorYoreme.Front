@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UsersCatalogComponent } from "./components/users.catalog/users.catalog.component";
-import { UsersRegisteredComponent } from "./components/users.registered/users.registered.component";
+import { UsersCatalogComponent } from "./pages/users.catalog/users.catalog.component";
+import { UsersRegisteredComponent } from "./pages/users.registered/users.registered.component";
 
 type UserTab = 'activeUsers' | 'pendingApproval' | 'rolesPermissions';
 

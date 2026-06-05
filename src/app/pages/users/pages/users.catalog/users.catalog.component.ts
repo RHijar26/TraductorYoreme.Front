@@ -3,6 +3,7 @@ import { Users } from '../../interfaces/GetUserResponse.interface';
 import { UserService } from '../../services/users.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TransforImgName } from '../../functions/transfor.name';
 
 @Component({
   selector: 'app-users-catalog',
@@ -44,9 +45,6 @@ export class UsersCatalogComponent implements OnInit {
         this.hasNextPage = this.users.length === this.pageSize;
         this.applyFilters();
         this.isLoading.set(false);
-
-        console.log('Usuarios cargados:', this.users);
-        console.log('Usuarios Filtrados:', this.filteredUsers());
       },
       error: () => {
         this.users = [];
@@ -114,11 +112,6 @@ export class UsersCatalogComponent implements OnInit {
 
 
   transforImgName(fullName: string): string {
-    console.log('Transformando nombre:', fullName);
-
-    const names = fullName.split(' ').filter(name => name);
-    if (names.length === 0) return 'X';
-    if (names.length === 1) return names[0].charAt(0).toUpperCase();
-    return (names[0].charAt(0) + names[1].charAt(0)).toUpperCase();
+    return TransforImgName(fullName);
   }
 }

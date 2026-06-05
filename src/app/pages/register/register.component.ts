@@ -1,14 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { UserService } from '../users/services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
-import { validate } from '@angular/forms/signals';
 import { CommonModule } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { InfoModalComponent } from '../../modals/info.modal/info.modal.component';
 import { Router, RouterLink } from "@angular/router";
-import { IconsConst } from '../../helpers/consts/icons.conts';
-import { ModalInfoTypes } from '../../helpers/enums/modal.info.types.enum';
+import { RegisterService } from './services/register.service';
 import { take } from 'rxjs';
+import { ModalInfoTypes } from '../../helpers/enums/modal.info.types.enum';
+import { InfoModalComponent } from '../../modals/info.modal/info.modal.component';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +17,7 @@ import { take } from 'rxjs';
 export class RegisterComponent {
 
   
-  userService = inject(UserService)
+  registerService = inject(RegisterService)
   ngbModal = inject(NgbModal);
   private router = inject(Router)
   
@@ -28,8 +26,9 @@ export class RegisterComponent {
     lastName: new FormControl<string|null>(null, Validators.required),  
     secondLastName: new FormControl<string|null>(null, Validators.required),    
     email: new FormControl<string|null>(null, Validators.required),    
-    passWord: new FormControl<string|null>(null, Validators.required),     
-    confirmPassWord: new FormControl<string|null>(null, Validators.required),    
+    aboutme: new FormControl<string|null>(null, Validators.required),
+    // passWord: new FormControl<string|null>(null, Validators.required),     
+    // confirmPassWord: new FormControl<string|null>(null, Validators.required),    
   });
 
   comparePassWord() : Boolean{
@@ -51,10 +50,10 @@ export class RegisterComponent {
       lastName: this.form.get('lastName')?.value,
       secondLastName: this.form.get('secondLastName')?.value,
       email: this.form.get('email')?.value,
-      password: this.form.get('passWord')?.value,
+      aboutMe: this.form.get('aboutme')?.value,
     }
         
-    this.userService.register(payLoad).subscribe({
+    this.registerService.register(payLoad).subscribe({
       next: (response) => {
 
         const modalRef = this.ngbModal.open(InfoModalComponent, {
@@ -68,7 +67,7 @@ export class RegisterComponent {
         modalRef.closed
           .pipe(take(1))
           .subscribe(() => {
-             this.router.navigate(['/login']);
+             this.router.navigate(['/']);
           }
         );  
       },

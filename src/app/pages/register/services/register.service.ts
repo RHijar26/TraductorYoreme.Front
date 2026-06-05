@@ -1,0 +1,34 @@
+import { inject, Injectable } from "@angular/core";
+import { catchError, map, Observable } from "rxjs";
+import { environment } from "../../../../environments/environment.development";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { ModalService } from "../../../services/modal.service";
+import { GetRegisterResponse } from "../interfaces/GetRegisterResponse.interface";
+
+@Injectable({ providedIn: 'root' })
+export class RegisterService {   
+    private apiUrl = environment.apiUrl + 'userRegister/';
+    private http = inject(HttpClient);    
+    private modalService = inject(ModalService);
+    
+
+    register(payload: object ) : Observable<any>{
+        return this.http.post<object>(this.apiUrl + 'register',payload).pipe(
+            map(responese => responese),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    }
+
+    getAll() : Observable<GetRegisterResponse[]>{
+        return this.http.get<{ data: GetRegisterResponse[] }>(this.apiUrl).pipe(
+            map(response => response.data),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    } 
+} 

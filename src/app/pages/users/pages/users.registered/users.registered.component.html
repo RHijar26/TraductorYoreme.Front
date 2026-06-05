@@ -1,0 +1,49 @@
+<div class="bg-[#137fec]/5 border border-[#137fec]/20 rounded-lg p-4 flex items-start gap-3">
+        <span class="material-symbols-outlined text-[#137fec] mt-0.5">info</span>
+        <div>
+            <p class="font-body-md text-body-md text-background-dark">Estos usuarios han solicitado acceso. Revisa su información antes de aprobarlos.</p>
+        </div>
+    </div>
+<!-- Data Table Card -->
+<div class="bg-white rounded-DEFAULT border border-surface-border shadow-sm overflow-hidden">
+    <table class="w-full text-left border-collapse">
+        <thead class="bg-table-header-bg border-b border-surface-border">
+            <tr>
+                <th class="py-3 px-6 font-label-caps text-label-caps text-sidebar-text uppercase tracking-wider">Candidato</th>
+                <th class="py-3 px-6 font-label-caps text-label-caps text-sidebar-text uppercase tracking-wider">Fecha de Solicitud</th>                
+                <th class="py-3 px-6 font-label-caps text-label-caps text-sidebar-text uppercase tracking-wider text-right">Acciones</th>
+            </tr>
+        </thead>
+    <tbody class="divide-y divide-surface-border">
+        @if (isLoading()) {
+            <tr>
+                <td class="px-6 py-6 text-sidebar-text" colspan="6">Cargando registros...</td>
+            </tr>
+        }@else{
+            @for (register of registers(); track register.id) {
+                <tr  class="hover:bg-slate-50/50 transition-colors group">
+                    <td class="py-4 px-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-sidebar-text font-bold">{{ transforImgName(register.name) }}</div>
+                            <div>
+                                <p class="font-body-md text-body-md font-bold text-background-dark">{{ register.name }}</p>
+                                <p class="font-code-sm text-code-sm text-sidebar-text">{{ register.email }}</p>
+                                <p class="font-body-sm text-body-sm text-sidebar-text mt-1 italic max-w-xs truncate">{{ register.aboutMe }}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="py-4 px-6">
+                        <span class="font-body-sm text-body-sm text-sidebar-text">{{ register.createDate | date:'short' }}</span>
+                    </td>             
+                <td class="py-4 px-6 text-right">
+                    <div class="flex justify-end gap-2">
+                        <button class="px-3 py-1.5 rounded font-body-sm text-body-sm font-bold border border-status-error text-status-error hover:bg-status-error/10 transition-colors">Rechazar</button>
+                        <button class="px-3 py-1.5 rounded font-body-sm text-body-sm font-bold bg-[#137fec] text-white hover:bg-[#0f66bd] transition-colors shadow-sm">Aprobar</button>
+                    </div>
+                </td>
+                </tr>    
+            }
+        }
+    </tbody>
+    </table>
+</div>
