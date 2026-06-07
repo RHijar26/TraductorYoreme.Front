@@ -35,4 +35,15 @@ export class RegisterService {
             })
         );
     } 
+
+
+    decline(id: number) : Observable<any>{
+        return this.http.put(this.apiUrl + 'decline/' + id, {}).pipe(
+            map(response => response),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    }
 } 
