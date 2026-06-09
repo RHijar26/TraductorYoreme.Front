@@ -54,6 +54,27 @@ export class UsersRegisteredComponent {
     });    
   }
 
+
+  approve(id: number): void {
+    const modalRef = this.ngbModal.open(ConfirmModalComponent, {
+              size: 'lg',
+              centered: true
+    });
+
+    modalRef.componentInstance.title = 'Aprobar';
+    modalRef.componentInstance.message = '¿Deseas aprobar este usuario?';
+
+    modalRef.closed
+      .pipe(take(1))
+      .subscribe((response: any) => {            
+        if(response)
+          this.registerService.approve(id).subscribe(() => {
+          const updatedRegisters = this.registers().filter(register => register.id !== id);
+          this.registers.set(updatedRegisters);
+      });
+    });    
+  }
+
   transforImgName(fullName: string): string {
     return TransforImgName(fullName);
   }

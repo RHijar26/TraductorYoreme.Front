@@ -46,4 +46,14 @@ export class RegisterService {
             })
         );
     }
+
+    approve(id: number) : Observable<any>{
+        return this.http.put(this.apiUrl + 'approve/' + id, {}).pipe(
+            map(response => response),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    }
 } 
