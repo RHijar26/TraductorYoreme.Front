@@ -56,4 +56,14 @@ export class RegisterService {
             })
         );
     }
+
+    setPassword(payload: object) : Observable<any>{
+        return this.http.post(this.apiUrl + 'setPassword', payload).pipe(
+            map(response => response),
+            catchError((error: HttpErrorResponse) =>{
+                this.modalService.showErrorModal(error);
+                throw error;
+            })
+        );
+    }
 } 
