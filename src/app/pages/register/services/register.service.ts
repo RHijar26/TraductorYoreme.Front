@@ -1,5 +1,5 @@
-import { inject, Injectable } from "@angular/core";
-import { catchError, map, Observable } from "rxjs";
+import { inject, Injectable, signal } from "@angular/core";
+import { catchError, map, Observable, Subject } from "rxjs";
 import { environment } from "../../../../environments/environment.development";
 import { HttpClient, HttpErrorResponse, httpResource, HttpResourceRef } from "@angular/common/http";
 import { ModalService } from "../../../services/modal.service";
@@ -11,6 +11,12 @@ export class RegisterService {
     private http = inject(HttpClient);    
     private modalService = inject(ModalService);
     
+    private _pendings = new Subject<void>();
+    pendings = this._pendings.asObservable();  
+
+    UpdatePendigs() {
+        this._pendings.next();
+    }
 
     register(payload: object ) : Observable<any>{
         return this.http.post<object>(this.apiUrl + 'register',payload).pipe(

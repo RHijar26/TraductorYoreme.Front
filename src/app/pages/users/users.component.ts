@@ -14,21 +14,31 @@ type UserTab = 'activeUsers' | 'pendingApproval' | 'rolesPermissions';
 })
 export class UsersComponent {
 
-  private registerService = inject(RegisterService);
+  public registerService = inject(RegisterService);
 
   activeTab: UserTab = 'activeUsers';
   pendingApprovalsCount = 5;
 
-  pendingsResource: HttpResourceRef<any | undefined> = this.registerService.getPending();    
-  pendings = signal<number | undefined>(undefined);
+  pendingsResource: HttpResourceRef<any | undefined> = this.registerService.getPending();      
+  pendings = signal<number | undefined>(undefined);  
+
 
   constructor() {
     effect(() => {
       const pendings = this.pendingsResource.value();
       if(pendings !== undefined){
         this.pendings.set(pendings.data);
+
+        this.registerService.pendings.subscribe(() => {
+          this.setPendings();
+        });
       }
     });
+  }
+
+
+  setPendings(): void {
+    this.pendingsResource.reload();
   }
 
   setActiveTab(tab: UserTab): void {
@@ -45,5 +55,7 @@ export class UsersComponent {
 
     return `${baseClass} text-sidebar-text border-transparent hover:bg-slate-50`;
   }
+
+
 
 }

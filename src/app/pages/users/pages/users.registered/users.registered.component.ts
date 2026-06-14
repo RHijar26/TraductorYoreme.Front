@@ -71,6 +71,9 @@ export class UsersRegisteredComponent {
           this.registerService.approve(id).subscribe(() => {
           const updatedRegisters = this.registers().filter(register => register.id !== id);
           this.registers.set(updatedRegisters);
+
+
+          this.registerService.UpdatePendigs();
       });
     });    
   }
