@@ -10,6 +10,7 @@ import { PhrasesComponent } from './pages/phrases/phrases.component';
 import { RegionsComponent } from './pages/regions/regions.component';
 import { ModelsComponent } from './pages/models/models.component';
 import { UsersComponent } from './pages/users/users.component';
+import { SetPasswordComponent } from './pages/register/pages/set.password/set.password.component';
 
 export const routes: Routes = [
   {
@@ -33,7 +34,7 @@ export const routes: Routes = [
           title: 'Registro',
           component: RegisterComponent,
           canActivate: [notAuthenticatedGuard],
-        },
+        },       
     ],
   },
   {
@@ -61,6 +62,12 @@ export const routes: Routes = [
           canActivate: [authenticatedGuard],
       }
     ]
+  },
+  {
+    path: 'set-password',
+    title: 'Configurar contraseña',
+    component: SetPasswordComponent,
+    canActivate: [],
   }
 
 ];

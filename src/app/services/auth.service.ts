@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { TokenService } from './token.service';
+import { TokenService } from '../core/services/token.service';
 import { catchError, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ModalService } from './modal.service';
