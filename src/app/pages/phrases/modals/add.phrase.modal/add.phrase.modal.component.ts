@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Region } from '../../../../models/region';
 import { Model } from '../../../../models/model';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { PhraseService } from '../../../../services/phrase.service';
+import { PhraseService } from '../../services/phrase.service';
 
 @Component({
   selector: 'app-add-phrase-modal',

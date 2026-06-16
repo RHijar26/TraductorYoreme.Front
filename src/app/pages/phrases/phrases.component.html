@@ -12,181 +12,150 @@
 </div>
 <!-- Filters Bar -->
 <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-wrap gap-3 items-center">
-<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
-<span class="text-xs font-bold text-slate-400">Idioma:</span>
-<select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
-<option>Todos</option>
-<option>Yoreme</option>
-<option>Español</option>
-</select>
-</div>
-<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
-<span class="text-xs font-bold text-slate-400">Región:</span>
-<select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
-<option>Todas</option>
-<option>Sinaloa</option>
-<option>Sonora</option>
-</select>
-</div>
-<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
-<span class="text-xs font-bold text-slate-400">Modelo:</span>
-<select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
-<option>Todos</option>
-<option>LLM-v1</option>
-<option>BERT-Yoreme</option>
-</select>
-</div>
-<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
-<span class="text-xs font-bold text-slate-400">Estado:</span>
-<select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
-<option>Todos</option>
-<option>Autorizada</option>
-<option>Pendiente</option>
-</select>
-</div>
-<div class="ml-auto">
-<button class="text-primary text-xs font-bold hover:underline">Limpiar Filtros</button>
-</div>
+    <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+        <span class="text-xs font-bold text-slate-400">Idioma:</span>
+        <select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
+            <option>Todos</option>
+            <option>Yoreme</option>
+            <option>Español</option>
+        </select>
+    </div>
+    <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+        <span class="text-xs font-bold text-slate-400">Región:</span>
+        <select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
+            <option>Todas</option>
+            <option>Sinaloa</option>
+            <option>Sonora</option>
+        </select>
+    </div>
+    <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+        <span class="text-xs font-bold text-slate-400">Modelo:</span>
+        <select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
+            <option>Todos</option>
+            <option>LLM-v1</option>
+            <option>BERT-Yoreme</option>
+        </select>
+    </div>
+    <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700">
+    <span class="text-xs font-bold text-slate-400">Estado:</span>
+        <select class="bg-transparent border-none text-xs font-semibold p-0 focus:ring-0">
+            <option>Todos</option>
+            <option>Autorizada</option>
+            <option>Pendiente</option>
+        </select>
+    </div>
+    <div class="ml-auto">
+        <button class="text-primary text-xs font-bold hover:underline">Limpiar Filtros</button>
+    </div>
 </div>
 <!-- Data Table -->
 <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Frase Original</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Idioma</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Traducción</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Región</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Modelo</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-<!-- Row 1 -->
-<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Kó'okore</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[10px] font-bold uppercase tracking-tight">Yoreme</span>
-</td>
-<td class="px-6 py-4 text-slate-600 dark:text-slate-400 italic">Estar enfermo</td>
-<td class="px-6 py-4 text-sm">Sinaloa</td>
-<td class="px-6 py-4 text-sm font-mono text-xs">LLM-v1</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                        Autorizada
-                                    </span>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="text-primary hover:text-primary/80 font-bold text-xs uppercase tracking-wider">Proponer Mejora</button>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">Jípure</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[10px] font-bold uppercase tracking-tight">Yoreme</span>
-</td>
-<td class="px-6 py-4 text-slate-600 dark:text-slate-400 italic">Tener</td>
-<td class="px-6 py-4 text-sm">Sonora</td>
-<td class="px-6 py-4 text-sm font-mono text-xs">BERT-Yoreme</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                                        Pendiente
-                                    </span>
-</td>
-<td class="px-6 py-4 text-right space-x-4">
-<button class="text-green-600 dark:text-green-400 hover:opacity-80 font-bold text-xs uppercase tracking-wider">Autorizar</button>
-<button class="text-primary hover:text-primary/80 font-bold text-xs uppercase tracking-wider">Proponer Mejora</button>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">¿Jitasa jia?</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[10px] font-bold uppercase tracking-tight">Yoreme</span>
-</td>
-<td class="px-6 py-4 text-slate-600 dark:text-slate-400 italic">¿Qué dice?</td>
-<td class="px-6 py-4 text-sm">Sinaloa</td>
-<td class="px-6 py-4 text-sm font-mono text-xs">LLM-v2</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                        Autorizada
-                                    </span>
-</td>
-<td class="px-6 py-4 text-right">
-<button class="text-primary hover:text-primary/80 font-bold text-xs uppercase tracking-wider">Proponer Mejora</button>
-</td>
-</tr>
-<!-- Row 4 -->
-<tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
-<td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">¿A'abo em síme?</td>
-<td class="px-6 py-4">
-<span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[10px] font-bold uppercase tracking-tight">Yoreme</span>
-</td>
-<td class="px-6 py-4 text-slate-600 dark:text-slate-400 italic">¿Vienes para acá?</td>
-<td class="px-6 py-4 text-sm">Sonora</td>
-<td class="px-6 py-4 text-sm font-mono text-xs">BERT-Yoreme</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 text-xs font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                                        Pendiente
-                                    </span>
-</td>
-<td class="px-6 py-4 text-right space-x-4">
-<button class="text-green-600 dark:text-green-400 hover:opacity-80 font-bold text-xs uppercase tracking-wider">Autorizar</button>
-<button class="text-primary hover:text-primary/80 font-bold text-xs uppercase tracking-wider">Proponer Mejora</button>
-</td>
-</tr>
-</tbody>
-</table>
+    <table class="w-full text-left border-collapse">
+        <thead>
+            <tr class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Frase Original</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Idioma</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Traducción</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Idioma</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Región</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Modelo</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+            @if (isLoading()) {
+                <tr>
+                    <td class="px-6 py-6 text-sidebar-text" colspan="6">Cargando frases...</td>
+                </tr>
+            } @else if (!filteredPhrases().length) {
+                <tr>
+                    <td class="px-6 py-6 text-sidebar-text" colspan="6">No hay frases para mostrar.</td>
+                </tr>
+            } @else {
+                @for (phrase of filteredPhrases(); track phrase.id) {
+                    <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                        <td class="px-6 py-4 font-medium text-slate-900 dark:text-slate-200">{{ phrase.phrase }}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[10px] font-bold uppercase tracking-tight">{{ phrase.phraseLanguage }}</span>
+                        </td>
+                        <td class="px-6 py-4 text-slate-600 dark:text-slate-400 italic">{{ phrase.translation }}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md text-[10px] font-bold uppercase tracking-tight">{{ phrase.translationLanguage }}</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm">{{ phrase.region }}</td>
+                        <td class="px-6 py-4 text-sm font-mono text-xs">{{ phrase.model }}</td>
+                        <td class="px-6 py-4">
+                            @if (phrase.status === 'ACEPTADA') {
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Autorizada
+                                </span>
+                            }@else if (phrase.status === 'REVISIÓN') {
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-100 dark:bg-red-500/10 text-blue-700 dark:text-blue-400 text-xs font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                    Revisión
+                                </span>
+                            } @else {
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-100 dark:bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 text-xs font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                                    Pendiente
+                                </span>
+                            }
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                        <button class="text-primary hover:text-primary/80 font-bold text-xs uppercase tracking-wider">Proponer Mejora</button>
+                        </td>                       
+                    </tr>                       
+                }
+            }
+        <!-- Row 1 -->
+        </tbody>
+    </table>
 <!-- Pagination -->
-<div class="px-6 py-4 bg-slate-50/30 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-<span class="text-xs text-slate-500">Mostrando 4 de 1,248 frases</span>
-<div class="flex gap-2">
-<button class="p-1.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 disabled:opacity-50" disabled="">
-<span class="material-symbols-outlined text-sm">chevron_left</span>
-</button>
-<button class="px-3 py-1 rounded bg-primary text-white text-xs font-bold">1</button>
-<button class="px-3 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50">2</button>
-<button class="px-3 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50">3</button>
-<button class="p-1.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50">
-<span class="material-symbols-outlined text-sm">chevron_right</span>
-</button>
-</div>
-</div>
+    <div class="px-6 py-4 bg-slate-50/30 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+    <span class="text-xs text-slate-500">Mostrando 4 de 1,248 frases</span>
+    <div class="flex gap-2">
+        <button class="p-1.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 disabled:opacity-50" disabled="">
+            <span class="material-symbols-outlined text-sm">chevron_left</span>
+        </button>
+        <button class="px-3 py-1 rounded bg-primary text-white text-xs font-bold">1</button>
+        <button class="px-3 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50">2</button>
+        <button class="px-3 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold hover:bg-slate-50">3</button>
+        <button class="p-1.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50">
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </button>
+    </div>
+    </div>
 </div>
 <!-- Stats Footer Grid -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
-<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined">verified</span>
-</div>
-<div>
-<p class="text-2xl font-black">84%</p>
-<p class="text-xs text-slate-500 font-medium">Precisión del Modelo Promedio</p>
-</div>
-</div>
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
-<div class="size-12 rounded-full bg-green-100 dark:bg-green-500/10 flex items-center justify-center text-green-600">
-<span class="material-symbols-outlined">check_circle</span>
-</div>
-<div>
-<p class="text-2xl font-black">1,042</p>
-<p class="text-xs text-slate-500 font-medium">Frases Autorizadas este mes</p>
-</div>
-</div>
-<div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
-<div class="size-12 rounded-full bg-amber-100 dark:bg-amber-500/10 flex items-center justify-center text-amber-600">
-<span class="material-symbols-outlined">pending_actions</span>
-</div>
-<div>
-<p class="text-2xl font-black">206</p>
-<p class="text-xs text-slate-500 font-medium">Pendientes de Revisión</p>
-</div>
-</div>
-</div>
+    <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined">verified</span>
+        </div>
+        <div>
+        <p class="text-2xl font-black">84%</p>
+        <p class="text-xs text-slate-500 font-medium">Precisión del Modelo Promedio</p>
+        </div>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+        <div class="size-12 rounded-full bg-green-100 dark:bg-green-500/10 flex items-center justify-center text-green-600">
+        <span class="material-symbols-outlined">check_circle</span>
+        </div>
+        <div>
+        <p class="text-2xl font-black">1,042</p>
+        <p class="text-xs text-slate-500 font-medium">Frases Autorizadas este mes</p>
+        </div>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+        <div class="size-12 rounded-full bg-amber-100 dark:bg-amber-500/10 flex items-center justify-center text-amber-600">
+        <span class="material-symbols-outlined">pending_actions</span>
+        </div>
+        <div>
+        <p class="text-2xl font-black">206</p>
+        <p class="text-xs text-slate-500 font-medium">Pendientes de Revisión</p>
+        </div>
+        </div>
+    </div> -->
 </div>
